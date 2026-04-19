@@ -1,0 +1,27 @@
+INFINITY-CORE-ENGINE/
+├─ index.html
+├─ core/
+│  ├─ infinity-core.css
+│  └─ infinity-layout.css
+├─ ui/
+│  ├─ sentinel-skin.css
+│  └─ cinematic-glow.css
+├─ sentinel/
+│  ├─ sentinel-core.js
+│  ├─ instinct-engine.js
+│  ├─ spirit-ui.js
+│  ├─ warroom-ops.js
+│  └─ godlevel-render.js
+├─ pipeline/
+│  ├─ render-queue.js
+│  └─ pipeline-config.js
+├─ billing/
+│  ├─ billing-shell.js
+│  └─ credits-engine.js
+├─ client/
+│  ├─ client-portal.html
+│  └─ client-portal.js
+├─ api/
+│  └─ api-blueprint.md
+└─ config/
+   └─ infinity-manifest.json
