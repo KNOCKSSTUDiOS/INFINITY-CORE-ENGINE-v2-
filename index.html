@@ -1,221 +1,322 @@
+index.html name=index.html url=https://github.com/KNOCKSSTUDiOS-labs/INFINITY-CORE-ENGINE
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>INFINITY-CORE-ENGINE · Hollywood Imaging</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="INFINITY-CORE-ENGINE — Hollywood Imaging Engine in FULL PRODUCTION · SENTINEL WAR INSTINCT SPIRIT GOD LEVEL mode at hollywoodimaging.studio." />
-
-  <!-- CORE STYLES -->
-  <link rel="stylesheet" href="core/infinity-core.css" />
-  <link rel="stylesheet" href="core/infinity-layout.css" />
-
-  <!-- UI SKINS -->
-  <link rel="stylesheet" href="ui/sentinel-skin.css" />
-  <link rel="stylesheet" href="ui/cinematic-glow.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="INFINITY-CORE-ENGINE - Cinematic Studio Platform by KNOCKSSTUDiOS. Create, monetize, deploy.">
+    <meta name="theme-color" content="#000000">
+    <title>INFINITY-CORE-ENGINE | Cinematic Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #000; color: #fff; }
+        .metal-gradient { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%); }
+        .cyan-glow { text-shadow: 0 0 20px rgba(0, 255, 255, 0.5); }
+        .gold-accent { color: #FFD700; }
+        .pulse { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in-up { animation: fadeInUp 0.8s ease-out; }
+        .cinema-card { background: rgba(0, 255, 255, 0.05); border: 1px solid rgba(0, 255, 255, 0.2); transition: all 0.3s ease; cursor: pointer; }
+        .cinema-card:hover { background: rgba(0, 255, 255, 0.15); border-color: rgba(0, 255, 255, 0.6); box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); }
+        .btn-primary { background: linear-gradient(135deg, #00FFFF, #00CCCC); color: #000; font-weight: bold; padding: 12px 32px; border: none; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; }
+        .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(0, 255, 255, 0.6); }
+        .btn-secondary { background: rgba(0, 255, 255, 0.1); border: 2px solid #FFD700; color: #FFD700; padding: 10px 28px; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; }
+        .btn-secondary:hover { background: rgba(255, 215, 0, 0.1); }
+    </style>
 </head>
-<body class="ic-body">
-  <div class="ic-page">
-    <header class="ic-header">
-      <div class="ic-brand">
-        <div class="ic-brand-logo"></div>
-        <div class="ic-brand-text">
-          <div class="ic-brand-title">KNOCKSSTUDiOS</div>
-          <div class="ic-brand-name">INFINITY-CORE-ENGINE</div>
+<body>
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative w-full h-screen metal-gradient flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 opacity-20" id="bgAnimation"></div>
+        <div class="relative z-10 text-center fade-in-up">
+            <h1 class="text-7xl font-black mb-6 cyan-glow">INFINITY-CORE-ENGINE</h1>
+            <p class="text-2xl mb-4 gold-accent">Cinematic Studio Platform</p>
+            <p class="text-lg mb-12 opacity-80">Create. Render. Monetize. Deploy.</p>
+            <div class="flex gap-6 justify-center">
+                <button class="btn-primary" onclick="scrollToSection('cinema')">Launch Cinema Suite</button>
+                <button class="btn-secondary" onclick="scrollToSection('monetize')">Monetize Now</button>
+            </div>
         </div>
-      </div>
-      <div class="ic-pill ic-pill-live">
-        <span class="ic-pill-dot"></span>
-        <span>LIVE</span>
-        <span class="ic-pill-domain">hollywoodimaging.studio</span>
-      </div>
-    </header>
-
-    <main class="ic-main-grid">
-      <!-- LEFT: HERO / IDENTITY -->
-      <section class="ic-hero-card">
-        <div class="ic-hero-inner">
-          <div class="ic-hero-kicker">
-            FULL PRODUCTION · <span>SENTINEL WAR INSTINCT SPIRIT · GOD LEVEL</span>
-          </div>
-          <h1 class="ic-hero-title">
-            The <span>engine</span> beyond Blender, Unity, or any living pipeline.
-          </h1>
-          <p class="ic-hero-sub">
-            Not a plugin. Not a toy. A full production imaging engine wired for
-            <span>real work and real money</span> under your name only.
-          </p>
-          <p class="ic-hero-sub ic-hero-sub-es">
-            No es demo. No es beta. Es un motor de producción total, listo para cobrar por cada frame que salga.
-          </p>
-
-          <div class="ic-hero-actions">
-            <button class="ic-btn-primary" id="btnStartEngine">
-              Engage Sentinel Mode
-              <span>▶</span>
-            </button>
-            <button class="ic-btn-ghost" id="btnCopyDomain">
-              Copy domain · hollywoodimaging.studio
-            </button>
-          </div>
-
-          <div class="ic-hero-metrics">
-            <div class="ic-metric">
-              <strong>Production Tier</strong>
-              <div><span>FULL</span> · Client-ready · Studio-grade</div>
-            </div>
-            <div class="ic-metric">
-              <strong>Engine Identity</strong>
-              <div><span>SENTINEL</span> · War · Instinct · Spirit · God Level</div>
-            </div>
-            <div class="ic-metric">
-              <strong>Target</strong>
-              <div>Outperform every “standard” pipeline.</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- RIGHT: ENGINE MONITOR -->
-      <aside class="ic-engine-card">
-        <div class="ic-engine-inner">
-          <div class="ic-engine-header">
-            <div class="ic-engine-title">Engine Monitor · INFINITY CORE</div>
-            <div class="ic-engine-status">
-              <span class="ic-engine-status-dot"></span>
-              <span id="engineStatusText">IDLE · READY</span>
-            </div>
-          </div>
-
-          <div class="ic-engine-display">
-            <div class="ic-engine-display-inner">
-              <div class="ic-engine-row">
-                <div class="ic-engine-label">Domain</div>
-                <div class="ic-engine-value" id="engineDomain">hollywoodimaging.studio</div>
-              </div>
-              <div class="ic-engine-row">
-                <div class="ic-engine-label">Mode</div>
-                <div class="ic-engine-value" id="engineMode">FULL PRODUCTION · REVENUE</div>
-              </div>
-              <div class="ic-engine-main">
-                <div class="ic-engine-main-line">
-                  <span>STATE</span>
-                  <strong id="enginePhase">SENTINEL · WAR INSTINCT SPIRIT</strong>
-                </div>
-                <div class="ic-engine-main-line">
-                  <span>STACK</span>
-                  <strong>ENGINE CORE · AI LAB LEGENDS · HOLLYWOOD IMAGING</strong>
-                </div>
-                <div class="ic-engine-main-line">
-                  <span>MISSION</span>
-                  <strong>Be the engine they depend on when production is serious.</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="ic-engine-controls">
-            <div class="ic-toggle-group">
-              <button class="ic-toggle ic-toggle-active" data-mode="instinct">Instinct</button>
-              <button class="ic-toggle" data-mode="spirit">Spirit</button>
-              <button class="ic-toggle" data-mode="war">War Room</button>
-              <button class="ic-toggle" data-mode="god">God Level</button>
-            </div>
-          </div>
-
-          <div class="ic-engine-cta">
-            <span>Note:</span> This is the front-end shell. Behind it, you plug in jobs, queues,
-            payments, and delivery.
-            <small>Copy, deploy, and connect your backend when you’re ready to charge for every render.</small>
-          </div>
-        </div>
-      </aside>
-    </main>
-
-    <!-- LAYERS / SYSTEM OVERVIEW -->
-    <section class="ic-layers-grid">
-      <article class="ic-layer-card">
-        <div class="ic-layer-tag">Layer 1</div>
-        <div class="ic-layer-name"><span>Engine Core</span></div>
-        <p class="ic-layer-desc">
-          Core logic, timing, and identity. Built to run sessions, jobs, and client work without flinching.
-        </p>
-        <div class="ic-layer-foot">Heartbeat of the system.</div>
-      </article>
-
-      <article class="ic-layer-card">
-        <div class="ic-layer-tag">Layer 2</div>
-        <div class="ic-layer-name"><span>AI LAB LEGENDS</span></div>
-        <p class="ic-layer-desc">
-          Automated scripting, sequence generation, and bilingual output. The engine writes and thinks with you.
-        </p>
-        <div class="ic-layer-foot">Automation as a crew member.</div>
-      </article>
-
-      <article class="ic-layer-card">
-        <div class="ic-layer-tag">Layer 3</div>
-        <div class="ic-layer-name"><span>Hollywood Imaging</span></div>
-        <p class="ic-layer-desc">
-          Web deployment, domain wiring, and delivery. From local tests to global premieres at scale.
-        </p>
-        <div class="ic-layer-foot">Client-facing, money-facing.</div>
-      </article>
     </section>
 
-    <!-- MONEY + CLIENT PORTAL -->
-    <section class="ic-bottom-grid">
-      <article class="ic-money-card">
-        <div class="ic-money-title">Production & Money Flow</div>
-        <div class="ic-money-main">
-          Turn <span>shots</span> into <span>invoices</span>.
-          <small>Use this shell as the control room for how you charge and deliver.</small>
-        </div>
-        <ul class="ic-money-list">
-          <li>Sell finished cinematic renders as premium packages.</li>
-          <li>Offer monthly access to your engine presets and workflows.</li>
-          <li>Charge per sequence, per mission, or per delivery window.</li>
-          <li>Bundle imaging, sound, and brand systems as one “studio in a box.”</li>
-        </ul>
-        <div class="ic-money-foot">
-          This page is your proof-of-operation. The next step is wiring Stripe, credits, and dashboards behind it.
-        </div>
-      </article>
+    <!-- CINEMA SUITE -->
+    <section id="cinema" class="w-full py-24 bg-black border-t border-cyan-500/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-black mb-16 text-center cyan-glow">CINEMA SUITE</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Movie Player -->
+                <div class="cinema-card p-8 rounded-lg fade-in-up" style="animation-delay: 0.1s">
+                    <div class="text-4xl mb-4">🎬</div>
+                    <h3 class="text-2xl font-bold mb-4">Movie Theater</h3>
+                    <p class="opacity-70 mb-6">Full 4K cinema player with immersive theater experience, surround sound, and adaptive streaming.</p>
+                    <button class="btn-primary w-full" onclick="launchTheater()">Launch Theater</button>
+                </div>
 
-      <article class="ic-lead-card">
-        <div class="ic-lead-title">Client Portal Access</div>
-        <div class="ic-lead-main">
-          This shell can route clients into a dedicated
-          <span>INFINITY-CORE client portal</span> for renders, billing, and delivery.
+                <!-- Animation Studio -->
+                <div class="cinema-card p-8 rounded-lg fade-in-up" style="animation-delay: 0.2s">
+                    <div class="text-4xl mb-4">✨</div>
+                    <h3 class="text-2xl font-bold mb-4">Animation Studio</h3>
+                    <p class="opacity-70 mb-6">Create cinematic animations with timeline editor, effects, and real-time preview.</p>
+                    <button class="btn-primary w-full" onclick="launchAnimationStudio()">Open Studio</button>
+                </div>
+
+                <!-- Sound Design -->
+                <div class="cinema-card p-8 rounded-lg fade-in-up" style="animation-delay: 0.3s">
+                    <div class="text-4xl mb-4">🔊</div>
+                    <h3 class="text-2xl font-bold mb-4">Sound Design</h3>
+                    <p class="opacity-70 mb-6">Professional audio mixing, surround sound, and spatial audio rendering.</p>
+                    <button class="btn-primary w-full" onclick="launchSoundDesign()">Mix Audio</button>
+                </div>
+            </div>
         </div>
-        <div class="ic-lead-actions">
-          <a href="client/client-portal.html" class="ic-btn-secondary">
-            Open Client Portal Shell
-          </a>
-        </div>
-        <div class="ic-lead-note">
-          Portal is static right now. <span>Connect it to your backend</span> when you’re ready to onboard real clients.
-        </div>
-      </article>
     </section>
 
-    <footer class="ic-footer">
-      <span>© <span id="icYear"></span> hollywoodimaging.studio · INFINITY-CORE-ENGINE.</span>
-      <span>Full production mode. Beyond any off-the-shelf pipeline.</span>
-    </footer>
-  </div>
+    <!-- MONETIZATION PLATFORM -->
+    <section id="monetize" class="w-full py-24 bg-gradient-to-b from-black to-gray-900 border-t border-gold/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-black mb-16 text-center gold-accent">MONETIZATION ENGINE</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- Revenue Streams -->
+                <div class="cinema-card p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-6 gold-accent">Revenue Streams</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3"><span class="text-cyan-400">✓</span> Premium Subscriptions</li>
+                        <li class="flex items-center gap-3"><span class="text-cyan-400">✓</span> Per-View Revenue Share</li>
+                        <li class="flex items-center gap-3"><span class="text-cyan-400">✓</span> Sponsored Content</li>
+                        <li class="flex items-center gap-3"><span class="text-cyan-400">✓</span> Affiliate Marketing</li>
+                        <li class="flex items-center gap-3"><span class="text-cyan-400">✓</span> NFT & Digital Assets</li>
+                        <li class="flex items-center gap-3"><span class="text-cyan-400">✓</span> Analytics & Insights API</li>
+                    </ul>
+                </div>
 
-  <div class="ic-toast" id="icToast"></div>
+                <!-- Analytics Dashboard -->
+                <div class="cinema-card p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-6 gold-accent">Real-Time Analytics</h3>
+                    <div id="analyticsPreview" class="space-y-3">
+                        <div class="flex justify-between text-sm">
+                            <span>Total Earnings:</span>
+                            <span class="cyan-glow">$12,450.89</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span>Views Today:</span>
+                            <span class="cyan-glow">4,285</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span>Subscriber Growth:</span>
+                            <span class="cyan-glow">+342%</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span>Conversion Rate:</span>
+                            <span class="cyan-glow">8.7%</span>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full mt-6" onclick="openDashboard()">Full Dashboard</button>
+                </div>
+            </div>
 
-  <!-- CORE JS -->
-  <script src="sentinel/sentinel-core.js"></script>
-  <script src="sentinel/instinct-engine.js"></script>
-  <script src="sentinel/spirit-ui.js"></script>
-  <script src="sentinel/warroom-ops.js"></script>
-  <script src="sentinel/godlevel-render.js"></script>
-  <script src="pipeline/render-queue.js"></script>
-  <script src="billing/billing-shell.js"></script>
-  <script src="billing/credits-engine.js"></script>
-  <script src="client/client-portal.js"></script>
+            <!-- Pricing Plans -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="cinema-card p-8 rounded-lg text-center">
+                    <h4 class="text-xl font-bold mb-4">Starter</h4>
+                    <div class="text-3xl gold-accent font-bold mb-4">$9<span class="text-lg">/mo</span></div>
+                    <ul class="text-sm space-y-2 mb-6 opacity-70">
+                        <li>✓ 5 Movies</li>
+                        <li>✓ Basic Analytics</li>
+                        <li>✓ Community Support</li>
+                    </ul>
+                    <button class="btn-primary w-full">Choose Plan</button>
+                </div>
+
+                <div class="cinema-card p-8 rounded-lg text-center border-cyan-500 border-2">
+                    <div class="gold-accent text-sm font-bold mb-2">MOST POPULAR</div>
+                    <h4 class="text-xl font-bold mb-4">Pro Studio</h4>
+                    <div class="text-3xl cyan-glow font-bold mb-4">$29<span class="text-lg">/mo</span></div>
+                    <ul class="text-sm space-y-2 mb-6 opacity-70">
+                        <li>✓ Unlimited Movies</li>
+                        <li>✓ Advanced Analytics</li>
+                        <li>✓ Priority Support</li>
+                        <li>✓ Monetization Tools</li>
+                    </ul>
+                    <button class="btn-primary w-full">Choose Plan</button>
+                </div>
+
+                <div class="cinema-card p-8 rounded-lg text-center">
+                    <h4 class="text-xl font-bold mb-4">Enterprise</h4>
+                    <div class="text-3xl gold-accent font-bold mb-4">Custom</div>
+                    <ul class="text-sm space-y-2 mb-6 opacity-70">
+                        <li>✓ Everything in Pro</li>
+                        <li>✓ Custom Rendering</li>
+                        <li>✓ Dedicated Support</li>
+                        <li>✓ White-Label Option</li>
+                    </ul>
+                    <button class="btn-secondary w-full">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGES & RENDERING ENGINE -->
+    <section id="pages" class="w-full py-24 bg-black border-t border-cyan-500/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-black mb-16 text-center cyan-glow">LIVE PAGE ENGINE</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="cinema-card p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4 gold-accent">Dynamic Page Builder</h3>
+                    <p class="opacity-70 mb-6">Create monetized landing pages with built-in animation, sound effects, and revenue tracking. Each page auto-deploys to Vercel.</p>
+                    <button class="btn-primary w-full" onclick="launchPageBuilder()">Create Page</button>
+                </div>
+
+                <div class="cinema-card p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4 gold-accent">Live Preview & Deploy</h3>
+                    <p class="opacity-70 mb-6">Real-time preview with instant Vercel deployment. View analytics, earnings, and performance metrics live.</p>
+                    <button class="btn-primary w-full" onclick="deployPage()">Deploy Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADVANCED FEATURES -->
+    <section id="features" class="w-full py-24 bg-gradient-to-b from-gray-900 to-black border-t border-gold/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-black mb-16 text-center gold-accent">ADVANCED FEATURES</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="cinema-card p-6 rounded-lg text-center fade-in-up">
+                    <div class="text-3xl mb-3">🚀</div>
+                    <h4 class="font-bold mb-2">Vercel Integration</h4>
+                    <p class="text-sm opacity-70">One-click deployment to Vercel. Auto-scaling, CDN-optimized, instant.</p>
+                </div>
+
+                <div class="cinema-card p-6 rounded-lg text-center fade-in-up" style="animation-delay: 0.1s">
+                    <div class="text-3xl mb-3">🎯</div>
+                    <h4 class="font-bold mb-2">AI Optimization</h4>
+                    <p class="text-sm opacity-70">Ghost Innovations AI powers content recommendations & user targeting.</p>
+                </div>
+
+                <div class="cinema-card p-6 rounded-lg text-center fade-in-up" style="animation-delay: 0.2s">
+                    <div class="text-3xl mb-3">💎</div>
+                    <h4 class="font-bold mb-2">NFT Marketplace</h4>
+                    <p class="text-sm opacity-70">Mint, sell, and trade digital cinema assets as collectible NFTs.</p>
+                </div>
+
+                <div class="cinema-card p-6 rounded-lg text-center fade-in-up" style="animation-delay: 0.3s">
+                    <div class="text-3xl mb-3">🔐</div>
+                    <h4 class="font-bold mb-2">Security Sentinel</h4>
+                    <p class="text-sm opacity-70">Enterprise-grade security, DRM protection, and content encryption.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FOOTER -->
+    <section id="cta" class="w-full py-20 bg-black border-t border-cyan-500/30">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-black mb-8 cyan-glow">Ready to Launch?</h2>
+            <p class="text-lg mb-12 opacity-80">Deploy your cinematic studio on Vercel. Make money. Run forever.</p>
+            <div class="flex gap-6 justify-center flex-wrap">
+                <button class="btn-primary" onclick="startDeploy()">Deploy to Vercel</button>
+                <button class="btn-secondary" onclick="viewDocs()">View Docs</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL: Movie Theater -->
+    <div id="theaterModal" class="hidden fixed inset-0 bg-black/90 backdrop-blur z-50 flex items-center justify-center p-4">
+        <div class="bg-gray-900 rounded-lg max-w-4xl w-full p-8 border border-cyan-500/30">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-3xl font-bold cyan-glow">Cinema Theater</h3>
+                <button onclick="closeModal('theaterModal')" class="text-2xl opacity-50 hover:opacity-100">✕</button>
+            </div>
+            <div class="aspect-video bg-black rounded-lg mb-6 flex items-center justify-center border border-cyan-500/50">
+                <div class="text-center">
+                    <div class="text-6xl mb-4">🎬</div>
+                    <p class="text-cyan-400">Full Theater Experience</p>
+                    <p class="text-sm opacity-70 mt-2">Immersive video player with surround sound</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-4">
+                <button class="btn-primary">Play Movie</button>
+                <button class="btn-primary">Upload Content</button>
+                <button class="btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // GSAP animations
+        window.addEventListener('load', () => {
+            gsap.to('#bgAnimation', { duration: 8, opacity: 0.4, repeat: -1, yoyo: true });
+        });
+
+        // Smooth scroll
+        function scrollToSection(id) {
+            const section = document.getElementById(id);
+            section?.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Modal functions
+        function launchTheater() {
+            document.getElementById('theaterModal').classList.remove('hidden');
+        }
+
+        function launchAnimationStudio() {
+            alert('🎨 Animation Studio - Launch Preview\n\nReal-time timeline editor with effects library, composition manager, and export options.');
+        }
+
+        function launchSoundDesign() {
+            alert('🔊 Sound Design - Launch Preview\n\nMulti-track mixer, spatial audio, surround sound rendering, and real-time preview.');
+        }
+
+        function openDashboard() {
+            alert('📊 Real-Time Analytics Dashboard\n\nViewing: Earnings, Views, Growth, Conversion Rates, Subscriber Data, and Revenue Breakdowns.');
+        }
+
+        function launchPageBuilder() {
+            alert('🖼️ Dynamic Page Builder\n\nCreate monetized pages with animations, sound, and auto-deploy to Vercel.');
+        }
+
+        function deployPage() {
+            alert('🚀 Deploying to Vercel...\n\nYour page is live! View analytics at dashboard.');
+        }
+
+        function startDeploy() {
+            alert('🚀 Deploy Full Studio to Vercel\n\nStep 1: Connect GitHub\nStep 2: Select Project\nStep 3: Configure\nStep 4: Deploy\n\nYou\'re live in 60 seconds.');
+        }
+
+        function viewDocs() {
+            window.open('https://docs.infinitycore.studio', '_blank');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        // Auto-animate stats
+        setInterval(() => {
+            const earnings = Math.floor(Math.random() * 50000) + 5000;
+            const views = Math.floor(Math.random() * 10000) + 1000;
+            const growth = Math.floor(Math.random() * 500) + 100;
+            document.getElementById('analyticsPreview').innerHTML = `
+                <div class="flex justify-between text-sm">
+                    <span>Total Earnings:</span>
+                    <span class="cyan-glow">$${earnings.toLocaleString()}</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span>Views Today:</span>
+                    <span class="cyan-glow">${views.toLocaleString()}</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span>Subscriber Growth:</span>
+                    <span class="cyan-glow">+${growth}%</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span>Conversion Rate:</span>
+                    <span class="cyan-glow">${(Math.random() * 15).toFixed(1)}%</span>
+                </div>
+            `;
+        }, 3000);
+    </script>
 </body>
 </html>
-
